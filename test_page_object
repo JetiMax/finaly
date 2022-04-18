@@ -1,0 +1,31 @@
+from pages.ozon_page import OzonPage
+from pages.shops_page import ShopPage
+import time
+import warnings
+
+
+def test_visit(driver):
+    ozon_pages = OzonPage(driver)
+    ozon_pages.visit()
+    assert ozon_pages.get_shops().is_displayed()
+    time.sleep(5)
+
+
+def test_shops(driver):
+    ozon_pages = OzonPage(driver)
+    ozon_pages.visit()
+    ozon_pages.get_shops().click()
+    shop_page = ShopPage(driver)
+    time.sleep(5)
+    assert shop_page.get_shops()[1].is_displayed()
+    pass
+    time.sleep(5)
+
+
+def api_v1():
+    warnings.warn(UserWarning("api v1, should use functions from v2"))
+    return 1
+
+
+def test_one():
+    assert api_v1() == 1

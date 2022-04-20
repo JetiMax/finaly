@@ -1,0 +1,19 @@
+from selenium import webdriver
+import time
+
+driver = webdriver.Chrome("C:/Users/slvit/PycharmProjects/Home/drivers/chromedriver.exe")
+
+driver.implicitly_wait(5)
+driver.maximize_window()
+
+driver.get("https://www.exist.ru/")
+driver.find_element_by_name("Войти").click()
+driver.find_element_by_id("txtUsername").send_keys("+79373981566")
+driver.find_element_by_id("txtUsername").send_keys("HfkpgYF")
+driver.find_element_by_id("btnLogin").click()
+driver.find_element_by_text("+79373981566").click()
+time.sleep(5)
+
+driver.close()
+driver.quit()
+print("Test Completed")
